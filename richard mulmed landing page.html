@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanato Beverages - Kesegaran Hakiki</title>
+    <!-- Menggunakan font Google Poppins agar desain lebih keren dan elegan -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === CSS RESET & VARIABEL === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #2e8b57; /* Matcha Green */
+            --choc-color: #8b4513; /* Chocolate Brown */
+            --tea-color: #d2691e; /* Tea Amber */
+            --bg-color: #fcfcfc;
+            --text-color: #333333;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* === HEADER & NAVIGASI === */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* === HERO SECTION === */
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 0 20px;
+            margin-top: 60px; /* Offset for fixed header */
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn-order {
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 139, 87, 0.4);
+        }
+
+        .btn-order:hover {
+            background-color: #246d44;
+            transform: translateY(-3px);
+        }
+
+        /* === MENU SECTION === */
+        #menu {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--text-color);
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .menu-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            width: 320px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .menu-image {
+            height: 220px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .img-matcha { background: linear-gradient(45deg, #a8e063, #56ab2f); }
+        .img-coklat { background: linear-gradient(45deg, #8e54e9, #4776E6); background: linear-gradient(45deg, #D38312, #A83279); background: linear-gradient(45deg, #8b4513, #d2691e); }
+        .img-teh { background: linear-gradient(45deg, #fceabb, #f8b500); }
+
+        .menu-content {
+            padding: 25px;
+        }
+
+        .menu-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .menu-content p {
+            color: #777;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* === KONTAK / FORM SECTION === */
+        #contact {
+            background-color: #fff;
+            padding: 80px 20px;
+        }
+
+        .contact-wrapper {
+            max-width: 800px;
+            margin: auto;
+            background: #fafafa;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        input, textarea {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        button[type="submit"] {
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #246d44;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-info span {
+            font-weight: 300;
+        }
+
+        .footer-info span strong {
+            font-weight: 600;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #bdc3c7;
+            margin-top: 20px;
+            border-top: 1px solid #34495e;
+            padding-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Semantic HTML: Header dan Navigasi -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Hanato Beverages</a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Semantic HTML: Main Content -->
+    <main>
+        <!-- Bagian Hero / Beranda -->
+        <section id="home">
+            <h1>Cita Rasa Kesegaran Premium</h1>
+            <p>Nikmati perpaduan sempurna dari bahan-bahan pilihan. Dari tenangnya Matcha, manisnya Coklat, hingga segarnya Teh Manis klasik untuk menemani harimu.</p>
+            <a href="#menu" class="btn-order">Lihat Menu Kami</a>
+        </section>
+
+        <!-- Bagian Menu -->
+        <section id="menu">
+            <h2 class="section-title">Menu Andalan Kami</h2>
+            <div class="menu-container">
+                
+                <!-- Card 1 -->
+                <article class="menu-card">
+                    <div class="menu-image img-matcha">Artisan Matcha Latte</div>
+                    <div class="menu-content">
+                        <h3>Matcha Latte</h3>
+                        <p>Bubuk matcha asli Jepang yang di-blend sempurna dengan susu segar yang creamy. Cocok untuk relaksasi harimu.</p>
+                        <div class="price">Rp 25.000</div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="menu-card">
+                    <div class="menu-image img-coklat">Premium Es Susu Coklat</div>
+                    <div class="menu-content">
+                        <h3>Es Susu Coklat</h3>
+                        <p>Paduan dark chocolate premium dan susu full cream dingin. Menghadirkan rasa manis yang pas dan tidak bikin eneg.</p>
+                        <div class="price">Rp 22.000</div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="menu-card">
+                    <div class="menu-image img-teh">Classic Es Teh Manis</div>
+                    <div class="menu-content">
+                        <h3>Es Teh Manis</h3>
+                        <p>Seduhan daun teh melati pilihan yang harum, dipadukan dengan gula murni dan es batu yang menyegarkan dahaga.</p>
+                        <div class="price">Rp 10.000</div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Bagian Kontak (Menggunakan Form HTML) -->
+        <section id="contact">
+            <div class="contact-wrapper">
+                <h2 class="section-title" style="margin-bottom: 20px;">Hubungi Kami</h2>
+                <p style="margin-bottom: 30px; color: #666;">Ingin memesan dalam jumlah banyak atau ada pertanyaan? Isi form di bawah ini!</p>
+                
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap:</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pesan">Pesan / Orderan:</label>
+                        <textarea id="pesan" name="pesan" rows="5" placeholder="Tulis pesan atau detail pesanan Anda di sini..." required></textarea>
+                    </div>
+                    <button type="submit">Kirim Pesan</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Semantic HTML: Footer -->
+    <footer>
+        <h4>Creator Profile</h4>
+        <div class="footer-info">
+            <span><strong>Nama:</strong> Richard Kevin Hanato</span>
+            <span><strong>Umur:</strong> 15 Tahun</span>
+            <span><strong>Telepon:</strong> 081225871831</span>
+            <span><strong>Sekolah:</strong> Sekolah SMA Kristen Saint John Bungur</span>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Hanato Beverages. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
